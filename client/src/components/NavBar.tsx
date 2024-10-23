@@ -1,7 +1,7 @@
 import type React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./NavBar.css";
-// import logo from './path/to/logo.png';
 
 const NavBar: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -12,7 +12,6 @@ const NavBar: React.FC = () => {
 
   return (
     <header>
-      {/* <img src={logo} alt="Logo" className="nav-logo" /> */}
       <button
         type="button"
         onClick={toggleNavBar}
@@ -22,18 +21,18 @@ const NavBar: React.FC = () => {
       </button>
 
       <nav className={`nav-bar ${isExpanded ? "expanded" : ""}`}>
-        <button type="button" className="nav-button">
+        <Link to="/browse" className="nav-button">
           Browse
-        </button>
-        <button type="button" className="nav-button">
+        </Link>
+        <Link to="/search" className="nav-button">
           Search
-        </button>
-        <button type="button" className="nav-button">
+        </Link>
+        <Link to="/account" className="nav-button">
           Account
-        </button>
-        <button type="button" className="nav-button">
+        </Link>
+        <Link to="/about" className="nav-button">
           About
-        </button>
+        </Link>
       </nav>
     </header>
   );
