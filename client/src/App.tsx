@@ -1,10 +1,10 @@
 import "./App.css";
-import Article from "./components/Article";
+import CarouselItem from "./components/CarouselItem";
 
 function App() {
   return (
     <>
-      <Article />
+      <CarouselItem />
     </>
   );
 }

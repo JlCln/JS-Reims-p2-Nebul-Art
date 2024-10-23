@@ -1,4 +1,4 @@
-div.container {
+/* div.container {
   position: absolute;
   top: 0;
   display: flex;
@@ -13,8 +13,8 @@ div.container {
 
 div.Title {
   transition: 1s ease-in-out;
-  background-image: url(src/assets/images/musee-paris.jpg);
-  background-repeat: no-repeat;
+  /* background-image: url(src/assets/images/musee-paris.jpg); */
+/*background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   height: 79%;
@@ -35,7 +35,6 @@ a.details {
   right: 1%;
 }
 
-img.museum {
-  width: 100%;
-  margin-bottom: 20px;
-}
+img {
+  width: 250px;
+} */
