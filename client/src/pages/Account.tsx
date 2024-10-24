@@ -1,10 +1,7 @@
+import CarouselItem from "../components/CarouselItem";
+
 const Account = () => {
-  return (
-    <div>
-      <h1>Account Page</h1>
-      <p>Welcome to the Account page.</p>
-    </div>
-  );
+  return <CarouselItem />;
 };
 
 export default Account;
