@@ -30,8 +30,14 @@ function CarouselItem() {
 
   return (
     <>
-      <h3>Carousel</h3>
-      <Carousel autoPlay showThumbs={false}>
+      <Carousel
+        autoPlay={true}
+        showThumbs={false}
+        axis="vertical"
+        centerMode={true}
+        emulateTouch={true}
+        infiniteLoop={true}
+      >
         {articles.map((article) => {
           return (
             <Article
