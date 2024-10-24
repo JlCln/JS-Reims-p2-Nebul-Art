@@ -1,11 +1,21 @@
 import "./App.css";
-import CarouselItem from "./components/CarouselItem";
+import { Outlet } from "react-router-dom";
+import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <>
-      <CarouselItem />
-    </>
+    <div>
+      <header>
+        <NavBar />
+      </header>
+      <main>
+        <Outlet />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </div>
   );
 }
 
