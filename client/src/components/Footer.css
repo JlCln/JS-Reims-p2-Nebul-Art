@@ -1,19 +1,17 @@
 .footer {
-
   padding: 10px;
   text-align: center;
   display: flex;
   justify-content: flex-end;
   bottom: 0;
   right: 15px;
-  position:absolute
-  
+  position: absolute;
 }
 
 .socialmedia {
   margin-bottom: 20px;
   display: flex;
- gap:9px;
+  gap: 9px;
 }
 
 .social-link img {
@@ -22,23 +20,21 @@
   cursor: pointer;
 }
 @media screen and (min-width: 700px) {
-  
   .footer {
-   display: flex;
-   padding: 10px;
-  flex-direction: column;
-  display: flex;
-  justify-content: flex-end;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  float: right;
-   
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    float: right;
   }
   .socialmedia {
     margin-bottom: 40px;
     display: flex;
     flex-direction: column;
-   gap:20px;
+    gap: 20px;
   }
 }
