@@ -1,56 +1,81 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./CarouselItem.css";
 import Article from "./Article";
 
-function CarouselItem() {
-  const articles = [
-    {
-      img: "src/assets/images/musee-paris.jpg",
-      title: "Louvre",
-      description: "Lorem Ipsun Julie",
-      link: "",
-      id: 1,
-    },
+interface ArticleData {
+  id: string;
+  img: string;
+  title: string;
+  description: string;
+  link: string;
+}
 
-    {
-      img: "src/assets/images/musee-paris.jpg",
-      title: "Dum Dum",
-      description: "Lorem Ipsun Julie",
-      link: "",
-      id: 2,
-    },
-    {
-      img: "src/assets/images/musee-paris.jpg",
-      title: "Toto",
-      description: "Lorem Ipsun Julie",
-      link: "",
-      id: 3,
-    },
-  ];
+interface CarouselItemProps {
+  articles: ArticleData[];
+}
+
+function CarouselItem({ articles }: CarouselItemProps) {
+  if (!articles || articles.length === 0) {
+    return <p>No articles available</p>;
+  }
+
+  const renderArrowPrev = (
+    onClickHandler: () => void,
+    hasPrev: boolean,
+    label: string,
+  ) =>
+    hasPrev && (
+      <button
+        type="button"
+        onClick={onClickHandler}
+        title={label}
+        className="custom-arrow custom-arrow-prev"
+      >
+        &#9664;
+      </button>
+    );
+
+  const renderArrowNext = (
+    onClickHandler: () => void,
+    hasNext: boolean,
+    label: string,
+  ) =>
+    hasNext && (
+      <button
+        type="button"
+        onClick={onClickHandler}
+        title={label}
+        className="custom-arrow custom-arrow-next"
+      >
+        &#9654;
+      </button>
+    );
 
   return (
-    <>
+    <div className="carousel-container">
       <Carousel
-        autoPlay={true}
-        showThumbs={false}
+        renderArrowPrev={renderArrowPrev}
+        renderArrowNext={renderArrowNext}
+        showIndicators={false}
         axis="vertical"
         centerMode={true}
-        emulateTouch={true}
-        infiniteLoop={true}
+        autoFocus={true}
+        centerSlidePercentage={100}
+        width={"100%"}
+        dynamicHeight={true}
       >
-        {articles.map((article) => {
-          return (
-            <Article
-              key={article.id}
-              img={article.img}
-              title={article.title}
-              description={article.description}
-              link={article.link}
-            />
-          );
-        })}
+        {articles.map((article) => (
+          <Article
+            key={article.id}
+            img={article.img}
+            title={article.title}
+            description={article.description}
+            link={article.link}
+          />
+        ))}
       </Carousel>
-    </>
+    </div>
   );
 }
 
