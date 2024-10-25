@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import CarouselItem from "../components/CarouselItem";
 import "./Browse.css";
 
