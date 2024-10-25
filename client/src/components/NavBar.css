@@ -26,22 +26,23 @@ header {
   position: relative;
   height: 40px;
   padding: 5px 8px;
-  border: 2px solid #dfaf47;
+  border: 0.75px solid #5d3d1c;
   background: transparent;
-  color: #f5b143;
+  color: #9d6219;
   text-transform: uppercase;
   letter-spacing: 0.25em;
-  border-radius: 8px;
+  border-radius: 10px;
   outline: none;
   cursor: pointer;
   font-weight: bolder;
   box-shadow:
     inset 0 0 0 var(--border-size) currentcolor,
-    inset 0.5em 0.5em 0 0 #e8cf86, inset 0.5em 0.5em 0 0 #e8cf86,
-    inset -0.5em -0.5em 0 0 #e8cf86, inset 0 0 0 var(--border-size) currentcolor;
+    inset 0.5em 0.5em 0 0 #f9dc84, inset 0.5em 0.5em 0 0 #e8b986,
+    inset -0.5em -0.5em 0 0 #cda975, inset 0 0 0 var(--border-size) currentcolor;
   transition: background 0.8s ease;
   text-shadow: #ffffffc9 0 0 3px;
-  -webkit-text-stroke: #8660138c 1px;
+  -webkit-text-stroke: #da943336 0.75px;
+  filter: drop-shadow(0 0 1px #6e6e6e99);
 }
 
 .nav-bar {
