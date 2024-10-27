@@ -64,6 +64,8 @@ function CarouselItem({ articles }: CarouselItemProps) {
         centerSlidePercentage={100}
         width={"100%"}
         dynamicHeight={true}
+        showThumbs={false}
+        showStatus={false}
       >
         {articles.map((article) => (
           <Article

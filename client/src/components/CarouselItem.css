@@ -1,5 +1,5 @@
 .carousel-container {
-  width: 90%;
+  width: 95%;
   max-width: 1200px;
   margin: 0 auto;
   overflow: visible;
@@ -10,8 +10,7 @@
   background: #f5f5f5;
   border-radius: 20px;
   height: 70vh;
-  border: 1.4px solid #9b9b9b;
-  position: relative;
+  position: sticky;
 }
 
 .carousel .control-arrow {
@@ -25,23 +24,28 @@
 
 .custom-arrow {
   position: absolute;
-  transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.5);
   border: none;
   color: white;
-  font-size: 20px;
-  padding: 20px 10px;
+  font-size: 18px;
+  padding: 5px 8px;
   cursor: pointer;
   z-index: 2;
-  border-radius: 15px;
+  border-radius: 8px;
+  height: 40px;
+  width: 40px;
 }
 
 .custom-arrow-prev {
-  opacity: 40%;
+  opacity: 70%;
   transform: rotate(90deg);
+  right: 5px;
+  top: 5px;
 }
 
 .custom-arrow-next {
-  opacity: 40%;
+  opacity: 70%;
   transform: rotate(90deg);
+  right: 5px;
+  bottom: 5px;
 }
