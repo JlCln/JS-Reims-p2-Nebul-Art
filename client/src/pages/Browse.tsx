@@ -3,39 +3,148 @@ import CarouselItem from "../components/CarouselItem";
 import "./Browse.css";
 
 const Browse = () => {
-  const [museums, setMuseums] = useState([]);
-  const [showCarousel, setShowCarousel] = useState(false);
-
-  interface MuseumRecord {
-    nom_officiel: string;
-    adresse: string;
-    ville: string;
-    url: string;
-    identifiant: string;
+  interface Museum {
+    img: string;
+    title: string;
+    description: string;
+    link: string;
+    id: string;
+    coordinates: {
+      lat: number;
+      lon: number;
+    };
   }
+
+  const [museums, setMuseums] = useState<Museum[]>([]);
+  const [artGallery, setArtGallery] = useState([]);
+  const [showCarousel, setShowCarousel] = useState(false);
+  const [userLocation, setUserLocation] = useState<{
+    lat: number | null;
+    lon: number | null;
+  }>({ lat: null, lon: null });
+  const [carouselType, setCarouselType] = useState("museums");
 
   useEffect(() => {
     fetch(
-      "https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?limit=20",
+      "https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?limit=100&refine=region%3A%22Grand%20Est%22",
     )
       .then((response) => response.json())
       .then((data) => {
-        const formattedData = data.results.map((record: MuseumRecord) => ({
-          img: "src/assets/images/musee-paris.jpg", // Placeholder image
-          title: record.nom_officiel,
-          description: `${record.adresse}, ${record.ville}`,
-          link: record.url,
-          id: record.identifiant,
-        }));
+        const formattedData = data.results.map(
+          (record: {
+            nom_officiel: string;
+            adresse: string;
+            ville: string;
+            url: string;
+            identifiant: string;
+            coordonnees: { lat: number; lon: number };
+          }) => ({
+            img: "src/assets/images/musee-paris.jpg",
+            title: record.nom_officiel,
+            description: `${record.adresse}, ${record.ville}`,
+            link: record.url,
+            id: record.identifiant,
+            coordinates: record.coordonnees,
+          }),
+        );
         setMuseums(formattedData);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.error("Error getting geolocation:", error);
+        },
+      );
+    }
   }, []);
 
-  const handleShowCarousel = () => {
+  const calculateDistance = (
+    lat1: number,
+    lon1: number,
+    lat2: number,
+    lon2: number,
+  ) => {
+    const toRad = (value: number) => (value * Math.PI) / 180;
+    const R = 6371;
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRad(lat1)) *
+        Math.cos(toRad(lat2)) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  };
+
+  const handleShowMuseums = () => {
+    const museumsWithDistance = museums.map((museum) => {
+      const distance =
+        userLocation.lat !== null && userLocation.lon !== null
+          ? calculateDistance(
+              userLocation.lat,
+              userLocation.lon,
+              museum.coordinates.lat,
+              museum.coordinates.lon,
+            )
+          : Number.POSITIVE_INFINITY;
+      return { ...museum, distance };
+    });
+
+    const filteredMuseums = museumsWithDistance.filter(
+      (museum) => museum.distance <= 100,
+    );
+
+    const sortedMuseums = filteredMuseums.sort(
+      (a, b) => a.distance - b.distance,
+    );
+
+    const limitedMuseums = sortedMuseums.slice(0, 50);
+
+    setMuseums(limitedMuseums);
+    setCarouselType("museums");
     setShowCarousel(true);
+  };
+
+  const handleShowArtGallery = () => {
+    fetch(
+      "https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/base-joconde-extrait/records?limit=50&refine=ville%3A%22Reims%22",
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const formattedData = data.results.map(
+          (record: {
+            lien_site_associe: string;
+            titre: string;
+            domaine: string;
+            location: string;
+            recordid: string;
+          }) => ({
+            img: record.lien_site_associe,
+            title: record.titre,
+            description: `${record.domaine}, ${record.location}`,
+            link: "",
+            id: record.recordid,
+          }),
+        );
+        setArtGallery(formattedData);
+        setCarouselType("artGallery");
+        setShowCarousel(true);
+      })
+      .catch((error) => {
+        console.error("Error fetching art gallery data:", error);
+      });
   };
 
   return (
@@ -43,18 +152,36 @@ const Browse = () => {
       <button
         type="button"
         className="browse-museums-button"
-        onClick={handleShowCarousel}
+        onClick={handleShowMuseums}
       >
         Local Museums
       </button>
       <button
         type="button"
         className="browse-museums-button"
-        onClick={handleShowCarousel}
+        onClick={handleShowArtGallery}
       >
         Art Gallery
       </button>
-      {showCarousel && <CarouselItem articles={museums} />}
+      {showCarousel && carouselType === "museums" && (
+        <CarouselItem
+          articles={museums}
+          userLocation={
+            userLocation.lat !== null && userLocation.lon !== null
+              ? { lat: userLocation.lat, lon: userLocation.lon }
+              : { lat: 0, lon: 0 }
+          }
+        />
+      )}
+      {showCarousel && carouselType === "artGallery" && (
+        <CarouselItem
+          articles={artGallery}
+          userLocation={{
+            lat: userLocation.lat ?? 0,
+            lon: userLocation.lon ?? 0,
+          }}
+        />
+      )}
     </div>
   );
 };

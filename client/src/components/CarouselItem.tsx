@@ -9,13 +9,16 @@ interface ArticleData {
   title: string;
   description: string;
   link: string;
+  coordinates?: { lat: number; lon: number };
+  distance?: number;
 }
 
 interface CarouselItemProps {
   articles: ArticleData[];
+  userLocation: { lat: number; lon: number };
 }
 
-function CarouselItem({ articles }: CarouselItemProps) {
+function CarouselItem({ articles, userLocation }: CarouselItemProps) {
   if (!articles || articles.length === 0) {
     return <p>No articles available</p>;
   }
@@ -68,13 +71,17 @@ function CarouselItem({ articles }: CarouselItemProps) {
         showStatus={false}
       >
         {articles.map((article) => (
-          <Article
-            key={article.id}
-            img={article.img}
-            title={article.title}
-            description={article.description}
-            link={article.link}
-          />
+          <div key={article.id} className="carousel-slide">
+            <Article
+              img={article.img}
+              title={article.title}
+              description={article.description}
+              link={article.link}
+              coordinates={article.coordinates}
+              userLocation={userLocation}
+              distance={article.distance}
+            />
+          </div>
         ))}
       </Carousel>
     </div>
