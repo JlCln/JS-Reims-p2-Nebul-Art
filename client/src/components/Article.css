@@ -48,8 +48,8 @@
   border-radius: 10px;
   z-index: 1;
   color: white;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.774);
-  -webkit-text-stroke: #1a1a1a7c 0.1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.889);
+  -webkit-text-stroke: #1a1a1a7c 0.3px;
   text-align: center;
   vertical-align: middle;
   min-height: fit-content;
@@ -59,4 +59,8 @@
   .article-text {
     padding: 10px 40px;
   }
+}
+
+.distance-text {
+  font-weight: bold;
 }
