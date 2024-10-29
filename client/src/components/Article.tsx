@@ -4,25 +4,21 @@ interface ArticleProps {
   img: string;
   description: string;
   title: string;
-  link: string;
+  url: string;
   coordinates?: { lat: number; lon: number };
   userLocation?: { lat: number; lon: number };
   distance?: number;
 }
 
-function Article({ img, description, title, link, distance }: ArticleProps) {
+function Article({ img, description, title, url, distance }: ArticleProps) {
   return (
     <div className="article-content" style={{ backgroundImage: `url(${img})` }}>
       <div className="article-text">
-        <h1 className="article-title">
-          {title.charAt(0).toUpperCase() + title.slice(1)}
-        </h1>
-        <p className="article-description">
-          {description.charAt(0).toUpperCase() + description.slice(1)}
-        </p>
+        <h1>{title.charAt(0).toUpperCase() + title.slice(1)}</h1>
+        <p>{description.charAt(0).toUpperCase() + description.slice(1)}</p>
         {distance !== undefined && <p>Distance: {distance.toFixed(1)} km</p>}
-        {link && (
-          <a className="details" href={link} target="_blank" rel="noreferrer">
+        {url && (
+          <a className="details" href={url} target="_blank" rel="noreferrer">
             View more details
           </a>
         )}

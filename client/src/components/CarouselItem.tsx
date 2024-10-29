@@ -8,7 +8,7 @@ interface ArticleData {
   img: string;
   title: string;
   description: string;
-  link: string;
+  url: string;
   coordinates?: { lat: number; lon: number };
   distance?: number;
 }
@@ -76,7 +76,7 @@ function CarouselItem({ articles, userLocation }: CarouselItemProps) {
               img={article.img}
               title={article.title}
               description={article.description}
-              link={article.link}
+              url={article.url}
               coordinates={article.coordinates}
               userLocation={userLocation}
               distance={article.distance}
