@@ -4,6 +4,7 @@
   margin-bottom: 10px;
   padding: 0 10px;
   margin-top: 5px;
+  font-size: 1.9rem;
 }
 
 .details {
@@ -42,7 +43,6 @@
 .article-text {
   position: relative;
   background-color: rgba(52, 52, 52, 0.527);
-  background-blend-mode: color-burn;
   margin: 20px;
   padding: 10px;
   border-radius: 10px;
@@ -59,6 +59,10 @@
   .article-text {
     padding: 10px 40px;
   }
+}
+
+.article-description {
+  font-style: italic;
 }
 
 .distance-text {
