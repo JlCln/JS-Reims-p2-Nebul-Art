@@ -15,8 +15,16 @@ const Browse = () => {
     };
   }
 
+  interface ArtGalleryItem {
+    img: string;
+    title: string;
+    description: string;
+    link: string;
+    id: string;
+  }
+
   const [museums, setMuseums] = useState<Museum[]>([]);
-  const [artGallery, setArtGallery] = useState([]);
+  const [artGallery, setArtGallery] = useState<ArtGalleryItem[]>([]);
   const [showCarousel, setShowCarousel] = useState(false);
   const [userLocation, setUserLocation] = useState<{
     lat: number | null;
@@ -37,9 +45,12 @@ const Browse = () => {
             ville: string;
             url: string;
             identifiant: string;
-            coordonnees: { lat: number; lon: number };
+            coordonnees: {
+              lat: number;
+              lon: number;
+            };
           }) => ({
-            img: "src/assets/images/musee-paris.jpg",
+            img: "./src/assets/images/musee-paris.jpg",
             title: record.nom_officiel,
             description: `${record.adresse}, ${record.ville}`,
             link: record.url,
@@ -48,6 +59,31 @@ const Browse = () => {
           }),
         );
         setMuseums(formattedData);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+
+    fetch(
+      "https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/base-joconde-extrait/records?limit=50&refine=ville%3A%22Reims%22",
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const formattedData = data.results.map(
+          (record: {
+            titre: string;
+            domaine: string;
+            location: string;
+            recordid: string;
+          }) => ({
+            img: "./src/assets/images/musee-paris.jpg",
+            title: record.titre,
+            description: `${record.domaine}, ${record.location}`,
+            link: "",
+            id: record.recordid,
+          }),
+        );
+        setArtGallery(formattedData);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -68,37 +104,14 @@ const Browse = () => {
     }
   }, []);
 
-  const calculateDistance = (
-    lat1: number,
-    lon1: number,
-    lat2: number,
-    lon2: number,
-  ) => {
-    const toRad = (value: number) => (value * Math.PI) / 180;
-    const R = 6371;
-    const dLat = toRad(lat2 - lat1);
-    const dLon = toRad(lon2 - lon1);
-    const a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(toRad(lat1)) *
-        Math.cos(toRad(lat2)) *
-        Math.sin(dLon / 2) *
-        Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c;
-  };
-
   const handleShowMuseums = () => {
     const museumsWithDistance = museums.map((museum) => {
-      const distance =
-        userLocation.lat !== null && userLocation.lon !== null
-          ? calculateDistance(
-              userLocation.lat,
-              userLocation.lon,
-              museum.coordinates.lat,
-              museum.coordinates.lon,
-            )
-          : Number.POSITIVE_INFINITY;
+      const distance = calculateDistance(
+        userLocation.lat ?? 0,
+        userLocation.lon ?? 0,
+        museum.coordinates.lat,
+        museum.coordinates.lon,
+      );
       return { ...museum, distance };
     });
 
@@ -118,33 +131,28 @@ const Browse = () => {
   };
 
   const handleShowArtGallery = () => {
-    fetch(
-      "https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/base-joconde-extrait/records?limit=50&refine=ville%3A%22Reims%22",
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        const formattedData = data.results.map(
-          (record: {
-            lien_site_associe: string;
-            titre: string;
-            domaine: string;
-            location: string;
-            recordid: string;
-          }) => ({
-            img: record.lien_site_associe,
-            title: record.titre,
-            description: `${record.domaine}, ${record.location}`,
-            link: "",
-            id: record.recordid,
-          }),
-        );
-        setArtGallery(formattedData);
-        setCarouselType("artGallery");
-        setShowCarousel(true);
-      })
-      .catch((error) => {
-        console.error("Error fetching art gallery data:", error);
-      });
+    setCarouselType("artGallery");
+    setShowCarousel(true);
+  };
+
+  const calculateDistance = (
+    lat1: number,
+    lon1: number,
+    lat2: number,
+    lon2: number,
+  ): number => {
+    const toRad = (value: number) => (value * Math.PI) / 180;
+    const R = 6371;
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRad(lat1)) *
+        Math.cos(toRad(lat2)) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
   };
 
   return (
@@ -166,11 +174,10 @@ const Browse = () => {
       {showCarousel && carouselType === "museums" && (
         <CarouselItem
           articles={museums}
-          userLocation={
-            userLocation.lat !== null && userLocation.lon !== null
-              ? { lat: userLocation.lat, lon: userLocation.lon }
-              : { lat: 0, lon: 0 }
-          }
+          userLocation={{
+            lat: userLocation.lat ?? 0,
+            lon: userLocation.lon ?? 0,
+          }}
         />
       )}
       {showCarousel && carouselType === "artGallery" && (
