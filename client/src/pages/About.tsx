@@ -1,11 +1,5 @@
-import CarouselItem from "../components/CarouselItem";
-
 const About = () => {
-  return (
-    <>
-      <CarouselItem />
-    </>
-  );
+  return <></>;
 };
 
 export default About;
