@@ -3,9 +3,9 @@
   text-align: center;
   display: flex;
   justify-content: flex-end;
-  bottom: 0;
   right: 15px;
   position: absolute;
+  margin-top: 15px;
 }
 
 .socialmedia {
