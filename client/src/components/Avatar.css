@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap");
+
+:root {
+  --first-color: #9d6219;
+  --second-color: hsl(150, 100%, 38%);
+  --title-color: hsl(230, 24%, 12%);
+  --text-color: hsl(230, 4%, 60%);
+  --gray-color: hsl(230, 24%, 88%);
+  --border-color: #5d3d1c;
+  --body-color: hsl(230, 100%, 98%);
+  --container-color: hsl(0, 0%, 100%);
+
+  --body-font: "Syne", sans-serif;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+}
+
+div.avatar-main-container {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5rem;
+}
+
+.avatar-card-img {
+  width: 250px;
+}
+
+ul.icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+li {
+  list-style: none;
+}
+
+p {
+  font-family: var(--body-font);
+  font-size: var(--h2-font-size);
+}
