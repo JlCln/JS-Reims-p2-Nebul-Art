@@ -36,7 +36,12 @@ function Article({ img, description, title, url, distance }: ArticleProps) {
           </p>
         )}
         {url && (
-          <a className="details" href={url} target="_blank" rel="noreferrer">
+          <a
+            className="details"
+            href={`https://${url}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Site Web
           </a>
         )}

@@ -41,6 +41,7 @@
 }
 
 .article-text {
+  font-family: "Mukta", sans-serif;
   position: relative;
   background-color: rgba(52, 52, 52, 0.527);
   margin: 20px;
@@ -62,9 +63,11 @@
 }
 
 .article-description {
+  font-family: "Mukta", sans-serif;
   font-style: italic;
 }
 
 .distance-text {
+  font-family: "Mukta", sans-serif;
   font-weight: bold;
 }
