@@ -1,7 +1,5 @@
-import CarouselItem from "../components/CarouselItem";
-
 const Account = () => {
-  return <CarouselItem />;
+  return <></>;
 };
 
 export default Account;

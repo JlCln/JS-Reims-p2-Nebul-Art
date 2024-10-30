@@ -18,10 +18,7 @@ body {
 .main-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: first baseline;
   flex-grow: 1;
-  margin-top: 30px;
 }
 
 div.about-container {
