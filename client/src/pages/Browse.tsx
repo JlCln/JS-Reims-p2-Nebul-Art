@@ -25,7 +25,9 @@ const Browse = () => {
   }>({ lat: null, lon: null });
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/items")
+    fetch(
+      "https://museum-api-test-i6ck9ll6u-jlclns-projects.vercel.app/api/museums",
+    )
       .then((response) => response.json())
       .then((data) => {
         interface RecordType {
