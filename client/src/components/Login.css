@@ -8,10 +8,10 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  padding-bottom: 25vh;
+  padding-bottom: 10vh;
   background: white;
-  margin: 50px auto;
-  width: 350px;
+  margin: 28px auto;
+  width: 380px;
   border-radius: 15px;
 }
 
@@ -43,16 +43,15 @@ body {
   border-radius: 14px 14px 14px;
 }
 .form-toggle .active {
-  background-color: #e55743;
+  background-color: #9d6219;
   color: rgb(255, 241, 241);
 }
 .input button {
   width: 45%;
-  height: 50px;
-  margin-top: 35px;
+  height: 60px;
+  margin-top: 1rem;
   font-size: 22px;
-  padding: 14px;
-  background-color: #e55743;
+  background-color: #9d6219;
   color: #fffcfc;
   border: none;
   border-radius: 17px;
@@ -61,10 +60,9 @@ body {
 .input {
   display: flex;
   align-items: center;
-  margin: 20px;
+  margin: 10px 0;
   flex-direction: column;
-  width: 90%;
-  height: 50px;
+  width: 100%;
   gap: 1rem;
 }
 
@@ -76,7 +74,7 @@ body {
 
 .input input {
   padding: 22px;
-  width: 100%;
+  width: 90%;
   border: 1px solid #a29f9f;
   border-radius: 10px;
   display: flex;
@@ -84,20 +82,21 @@ body {
   font-size: 16px;
 }
 
-a {
-  font-size: 20px;
-  color: #e55743;
-  text-decoration: none;
-  margin-bottom: 9px;
-  text-align: right;
-}
 p {
-  font-size: 20px;
-  text-align: center;
+  font-size: 18px;
+  margin-left: 1rem;
 }
+
+.redirection-btn {
+  margin-left: 1rem;
+  background-color: white;
+  border: none;
+  color: #9d6219;
+  font-size: 20px;
+}
+
 h2 {
   text-align: center;
-  margin-bottom: 0px;
   font-weight: 800;
   font-size: 32px;
 }
@@ -132,7 +131,4 @@ h2 {
     margin-bottom: -38px;
     text-align: right;
   }
-
-
-
 }
