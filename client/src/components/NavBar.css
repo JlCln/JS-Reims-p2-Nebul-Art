@@ -6,6 +6,7 @@ header {
   height: 2rem;
   gap: 2px;
   margin: 10px 0px;
+  margin-left: 2px;
   position: sticky;
   top: 0;
   left: 0;

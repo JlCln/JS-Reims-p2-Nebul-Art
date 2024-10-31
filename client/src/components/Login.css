@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.sign-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10vh;
+  margin: 28px auto;
+  width: 380px;
+  border-radius: 15px;
+}
+
+.toggle-login {
+  background-color: #fffafa;
+  width: 80%;
+  height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 30px 30px rgba(197, 166, 166, 0.1);
+  position: relative;
+  top: 2vh;
+  margin: 0px 30px 30px;
+  padding: 9px 0px;
+  text-align: center;
+  cursor: pointer;
+}
+.form-toggle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.form-toggle button {
+  width: 100%;
+  padding: 10px;
+  border: 50px solid black;
+  border: none;
+  cursor: pointer;
+  font-size: 23px;
+  border-radius: 14px 14px 14px;
+}
+.form-toggle .active {
+  background-color: #9d6219;
+  color: rgb(255, 241, 241);
+}
+.input button {
+  width: 45%;
+  height: 60px;
+  margin-top: 1rem;
+  font-size: 22px;
+  background-color: #9d6219;
+  color: #fffcfc;
+  border: none;
+  border-radius: 17px;
+  cursor: pointer;
+}
+.input {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+.inputs {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input input {
+  padding: 22px;
+  width: 90%;
+  border: 1px solid #a29f9f;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+p {
+  font-size: 18px;
+  margin-left: 1rem;
+}
+
+.redirection-btn {
+  margin-left: 1rem;
+  background-color: white;
+  border: none;
+  color: #9d6219;
+  font-size: 20px;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 32px;
+}
+
+@media screen and (min-width: 700px) {
+  .sign-container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25vh;
+    background: white;
+    margin: 50px auto;
+    width: 590px;
+    border-radius: 15px;
+  }
+  .toggle-login {
+    background-color: #f9f3f3;
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 2vh;
+    margin: 0px 30px 30px;
+    padding: 6px 4px;
+    text-align: center;
+    cursor: pointer;
+  }
+}
