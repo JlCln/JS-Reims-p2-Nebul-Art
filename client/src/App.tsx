@@ -1,7 +1,6 @@
 import "./App.css";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
-import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -12,7 +11,6 @@ function App() {
       </header>
       <main>
         <Outlet />
-        <Login />
       </main>
       <footer>
         <Footer />
