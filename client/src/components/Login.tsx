@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import "./Login.css";
-import { Link } from "react-router-dom";
 
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
