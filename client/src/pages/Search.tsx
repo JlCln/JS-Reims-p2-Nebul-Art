@@ -1,10 +1,5 @@
 const Search = () => {
-  return (
-    <div>
-      <h1>Search Page</h1>
-      <p>Welcome to the Search page.</p>
-    </div>
-  );
+  return <></>;
 };
 
 export default Search;

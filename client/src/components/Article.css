@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Mukta:wght@200;300;400;500;600;700;800&display=swap");
+
+.article-title {
+  margin-bottom: 10px;
+  padding: 0 10px;
+  margin-top: 5px;
+  font-size: 1.9rem;
+}
+
+.details {
+  margin-top: 10px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.article-content {
+  font-family: "Mukta", sans-serif;
+  line-height: 1;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+@media screen and (min-width: 700px) {
+  .article-content {
+    background-clip: content-box;
+    background-size: cover;
+  }
+}
+
+.article-text {
+  font-family: "Mukta", sans-serif;
+  position: relative;
+  background-color: rgba(52, 52, 52, 0.527);
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 1;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.889);
+  -webkit-text-stroke: #1a1a1a7c 0.3px;
+  text-align: center;
+  vertical-align: middle;
+  min-height: fit-content;
+}
+
+@media screen and (min-width: 700px) {
+  .article-text {
+    padding: 10px 40px;
+  }
+}
+
+.article-description {
+  font-family: "Mukta", sans-serif;
+  font-style: italic;
+}
+
+.distance-text {
+  font-family: "Mukta", sans-serif;
+  font-weight: bold;
+}
