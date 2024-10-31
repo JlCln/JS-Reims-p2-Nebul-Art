@@ -34,8 +34,8 @@ function Login() {
   };
 
   return (
-    <div className="container">
-      <div className="toggle">
+    <div className="sign-container">
+      <div className="toggle-login">
         <div className="form-toggle">
           <button
             type="button"
