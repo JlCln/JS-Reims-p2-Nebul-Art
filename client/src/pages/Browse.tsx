@@ -125,6 +125,13 @@ const Browse = () => {
       >
         Local Museums
       </button>
+      <button
+        type="button"
+        className="browse-gallery-button"
+        onClick={handleShowItems}
+      >
+        Art Gallery
+      </button>
       {showCarousel && (
         <CarouselItem
           articles={items}
