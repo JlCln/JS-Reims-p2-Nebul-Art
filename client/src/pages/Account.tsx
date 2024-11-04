@@ -1,5 +1,11 @@
+import Login from "../components/Login";
+
 const Account = () => {
-  return <></>;
+  return (
+    <>
+      <Login />
+    </>
+  );
 };
 
 export default Account;

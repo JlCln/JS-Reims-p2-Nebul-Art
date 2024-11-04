@@ -5,8 +5,15 @@
   flex-direction: column;
   padding-bottom: 10vh;
   margin: 28px auto;
-  width: 380px;
-  border-radius: 15px;
+  width: 80%;
+  border-radius: 35px;
+  background-color: #fffafad0;
+}
+
+@media screen and (min-width: 768px) {
+  .sign-container {
+    width: 60%;
+  }
 }
 
 .toggle-login {
