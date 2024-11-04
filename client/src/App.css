@@ -36,7 +36,7 @@ main {
 @media screen and (min-width: 768px) {
   main {
     background-size: 30%;
-    background-position-y: 75%;
+    background-position-y: center;
     background-position-x: center;
   }
 }
