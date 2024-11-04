@@ -39,3 +39,7 @@
   position: relative;
   left: 10%;
 }
+
+.browse-container {
+  min-height: 80vh;
+}
