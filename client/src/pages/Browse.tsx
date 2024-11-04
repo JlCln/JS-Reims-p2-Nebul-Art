@@ -117,7 +117,7 @@ const Browse = () => {
   };
 
   return (
-    <div>
+    <div className="browse-container">
       <button
         type="button"
         className="browse-museums-button"

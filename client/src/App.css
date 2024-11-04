@@ -1,3 +1,15 @@
+:root {
+  background-image: url("https://i.imgur.com/deVIXZU.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    background-image: url("https://i.imgur.com/HPe0KYD.png");
+  }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,11 +20,33 @@ body {
   line-height: 1.5;
 }
 
+main {
+  min-height: 80vh;
+  background-image: url("https://i.imgur.com/HPPs36z.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: center;
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    background-size: 30%;
+    background-position-y: 75%;
+    background-position-x: center;
+  }
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin: 0 5px 0 0;
+  background-image: url("https://i.imgur.com/XVE4mmZ.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: center;
 }
 
 .main-content {
