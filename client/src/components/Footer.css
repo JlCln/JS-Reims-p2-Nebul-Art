@@ -1,41 +1,119 @@
 .footer {
-  padding: 10px;
-  text-align: center;
+  padding: 20px;
+  position: absolute;
   display: flex;
-  justify-content: flex-end;
+  text-align: center;
+  flex-direction: column;
   right: 15px;
-  position: relative;
-  bottom: 10px;
-  margin-top: 15px;
+  width: 100%;
+  bottom: 40px;
 }
 
 .socialmedia {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: flex;
   gap: 9px;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .social-link img {
-  width: 40px;
+  width: 30px;
   margin: 0 10px;
   cursor: pointer;
+}
+.footer-links {
+  width: 100%;
+  gap: 0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.footer-links a {
+  color: #211f1f;
+  margin: 0 0 10px;
+  text-decoration: underline;
+}
+
+.footer-links p {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-links a:hover {
+  color: #be8f29;
+}
+.footer-copyright {
+  display: flex;
+  border-top: 1px solid #9d6219;
+  padding: 10px;
+  margin: 15 0 10px;
+  position: fixed;
+  bottom: 1px;
+  width: 100%;
+}
+.footer-copyright P {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  font-size: 1.3rem;
 }
 @media screen and (min-width: 700px) {
   .footer {
     display: flex;
-    padding: 10px;
+    padding: 20px;
     flex-direction: column;
-    display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     position: absolute;
-    bottom: 10px;
+    align-items: flex-end;
+    bottom: 45px;
     right: 10px;
     float: right;
+    width: 100%;
   }
   .socialmedia {
     margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+  .footer-links {
+    width: 100%;
+    gap: 25px;
+    display: flex;
+    justify-content: center;
+    font-size: 10px;
+    flex-direction: row;
+  }
+
+  .footer-links a {
+    color: #211f1f;
+    margin: 0 0 10px;
+    text-decoration: underline;
+  }
+
+  .footer-links p {
+    font-size: 1.4rem;
+  }
+
+  .footer-links a:hover {
+    color: #be8f29;
+  }
+  .footer-copyright {
+    display: flex;
+    border-top: 1px solid #9d6219;
+    padding: 10px;
+    margin: 15 0 10px;
+    position: fixed;
+    bottom: 1px;
+    width: 100%;
+  }
+  .footer-copyright P {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    font-size: 1.3rem;
   }
 }
