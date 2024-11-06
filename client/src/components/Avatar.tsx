@@ -14,7 +14,7 @@ function Avatar({ name, img, title, icon1, icon2, icon3 }: AvatarProps) {
     <div className="avatar-main-container">
       <img src={img} alt="" className="avatar-card-img" />
       <h1>{name}</h1>
-      <h2>{title}</h2>
+      <h2 className="avatar-role">{title}</h2>
       <ul className="icons">
         <li>
           <a href="https://www.linkedin.com/">
