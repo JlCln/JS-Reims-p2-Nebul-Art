@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CarouselItem from "../components/CarouselItem";
+import GalleryCarouselItem from "../components/GalleryCarouselItem";
 import "./Browse.css";
 
 const Browse = () => {
@@ -18,7 +19,17 @@ const Browse = () => {
   }
 
   const [items, setItems] = useState<Item[]>([]);
+  interface ArtGalleryItem {
+    id: string;
+    titre: string;
+    localisation: string;
+    lien_site_associe: string;
+    imageoeuvre: string;
+  }
+
+  const [artGalleryItems, setArtGalleryItems] = useState<ArtGalleryItem[]>([]);
   const [showCarousel, setShowCarousel] = useState(false);
+  const [carouselType, setCarouselType] = useState("museums");
   const [userLocation, setUserLocation] = useState<{
     lat: number | null;
     lon: number | null;
@@ -73,6 +84,34 @@ const Browse = () => {
     }
   }, []);
 
+  const shuffleArray = <T,>(array: T[]): T[] => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
+  const handleShowArtGallery = async () => {
+    const response = await fetch(
+      "https://gallery-api-test-6z2ph3s4o-jlclns-projects.vercel.app/api/gallery",
+    );
+    const data = await response.json();
+    const formattedData: ArtGalleryItem[] = data.map(
+      (record: ArtGalleryItem) => ({
+        id: record.id,
+        titre: record.titre,
+        localisation: record.localisation,
+        lien_site_associe: record.lien_site_associe,
+        imageoeuvre: record.imageoeuvre,
+      }),
+    );
+    const shuffledData = shuffleArray(formattedData);
+    setArtGalleryItems(shuffledData);
+    setCarouselType("artGallery");
+    setShowCarousel(true);
+  };
+
   const calculateDistance = (
     lat1: number,
     lon1: number,
@@ -113,6 +152,7 @@ const Browse = () => {
     const limitedItems = sortedItems.slice(0, 50);
 
     setItems(limitedItems);
+    setCarouselType("museums");
     setShowCarousel(true);
   };
 
@@ -128,13 +168,22 @@ const Browse = () => {
       <button
         type="button"
         className="browse-gallery-button"
-        onClick={handleShowItems}
+        onClick={handleShowArtGallery}
       >
         Art Gallery
       </button>
-      {showCarousel && (
+      {showCarousel && carouselType === "museums" && (
         <CarouselItem
           articles={items}
+          userLocation={{
+            lat: userLocation.lat ?? 0,
+            lon: userLocation.lon ?? 0,
+          }}
+        />
+      )}
+      {showCarousel && carouselType === "artGallery" && (
+        <GalleryCarouselItem
+          articles={artGalleryItems}
           userLocation={{
             lat: userLocation.lat ?? 0,
             lon: userLocation.lon ?? 0,

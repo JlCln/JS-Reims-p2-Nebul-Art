@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Mukta:wght@200;300;400;500;600;700;800&display=swap");
+
+.gallery-carousel {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.gallery-slide {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 98%;
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+@media screen and (min-width: 700px) {
+  .gallery-slide {
+    background-position-y: 45%;
+    height: 42rem;
+  }
+}
+
+.gallery-text {
+  background: rgba(0, 0, 0, 0.312);
+  mix-blend-mode: hard-light;
+  padding: 20px 5px;
+  border-radius: 10px;
+  font-family: "Mukta", sans-serif;
+  width: 14rem;
+  text-align: left;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  white-space: normal;
+  overflow: visible;
+}
+
+@media screen and (min-width: 700px) {
+  .gallery-text {
+    width: 18rem;
+    top: 30%;
+    text-align: center;
+    padding: 15px 5px;
+    margin: 0;
+  }
+}
+
+.gallery-text * {
+  margin-left: 5px;
+  padding: 0;
+}
+
+.gallery-text-title {
+  font-style: italic;
+  font-size: 1.7rem;
+  font-weight: 150;
+  display: none;
+  max-width: 100%;
+}
+
+@media screen and (min-width: 700px) {
+  .gallery-text-title {
+    display: block;
+  }
+}
+
+.gallery-carousel-container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: visible;
+  position: relative;
+}
+
+.carousel .slide {
+  background: none;
+}
+
+.gallery-url-details {
+  margin-top: 10px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.gallery-url-icon {
+  background-color: #589df6b8;
+  border-radius: 50%;
+  padding: 0 10px;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.837));
+}
+
+.custom-arrow-next-galleryonly {
+  bottom: 0;
+  opacity: 70%;
+  transform: rotate(90deg);
+  right: 5px;
+}
