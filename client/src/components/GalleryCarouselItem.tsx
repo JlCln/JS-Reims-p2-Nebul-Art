@@ -10,6 +10,7 @@ interface ArticleData {
   localisation: string;
   lien_site_associe: string;
   imageoeuvre: string;
+  domaine: string;
 }
 
 interface GalleryCarouselItemProps {
@@ -96,6 +97,56 @@ const GalleryCarouselItem: React.FC<GalleryCarouselItemProps> = ({
                 >
                   <span className="gallery-url-icon">ℹ️</span> More details here
                 </a>
+              </p>
+              <p className="gallery-object-type">
+                {article.domaine.includes("textile") && "🧶"}
+                {!article.domaine.includes("textile") &&
+                  article.domaine.includes("céramique") &&
+                  "🏺"}
+                {!article.domaine.includes("textile") &&
+                  !article.domaine.includes("céramique") &&
+                  (article.domaine.includes("sculpture") ||
+                    article.domaine.includes("archéologie")) &&
+                  "🗿"}
+                {!article.domaine.includes("textile") &&
+                  !article.domaine.includes("céramique") &&
+                  !article.domaine.includes("sculpture") &&
+                  !article.domaine.includes("archéologie") &&
+                  article.domaine.includes("métallurgie") &&
+                  "🪙"}
+                {!article.domaine.includes("textile") &&
+                  !article.domaine.includes("céramique") &&
+                  !article.domaine.includes("sculpture") &&
+                  !article.domaine.includes("archéologie") &&
+                  !article.domaine.includes("métallurgie") &&
+                  article.domaine.includes("peinture") &&
+                  "🎨"}
+                {!article.domaine.includes("textile") &&
+                  !article.domaine.includes("céramique") &&
+                  !article.domaine.includes("sculpture") &&
+                  !article.domaine.includes("archéologie") &&
+                  !article.domaine.includes("métallurgie") &&
+                  !article.domaine.includes("peinture") &&
+                  article.domaine.includes("estampe") &&
+                  "📜"}
+                {!article.domaine.includes("textile") &&
+                  !article.domaine.includes("céramique") &&
+                  !article.domaine.includes("sculpture") &&
+                  !article.domaine.includes("archéologie") &&
+                  !article.domaine.includes("métallurgie") &&
+                  !article.domaine.includes("peinture") &&
+                  !article.domaine.includes("estampe") &&
+                  article.domaine.includes("Asie orientale") &&
+                  "🌏"}
+                {!article.domaine.includes("textile") &&
+                  !article.domaine.includes("céramique") &&
+                  !article.domaine.includes("sculpture") &&
+                  !article.domaine.includes("archéologie") &&
+                  !article.domaine.includes("métallurgie") &&
+                  !article.domaine.includes("peinture") &&
+                  !article.domaine.includes("estampe") &&
+                  !article.domaine.includes("Asie orientale") &&
+                  "❔"}
               </p>
             </div>
           </div>

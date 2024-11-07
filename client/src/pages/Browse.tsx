@@ -16,6 +16,7 @@ const Browse = () => {
       lon: number;
     };
     img: string;
+    domaine: string;
   }
 
   const [items, setItems] = useState<Item[]>([]);
@@ -25,6 +26,7 @@ const Browse = () => {
     localisation: string;
     lien_site_associe: string;
     imageoeuvre: string;
+    domaine: string;
   }
 
   const [artGalleryItems, setArtGalleryItems] = useState<ArtGalleryItem[]>([]);
@@ -104,6 +106,7 @@ const Browse = () => {
         localisation: record.localisation,
         lien_site_associe: record.lien_site_associe,
         imageoeuvre: record.imageoeuvre,
+        domaine: record.domaine || "Unknown",
       }),
     );
     const shuffledData = shuffleArray(formattedData);
