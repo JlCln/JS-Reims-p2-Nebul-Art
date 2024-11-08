@@ -18,7 +18,7 @@ interface CarouselItemProps {
   userLocation: { lat: number; lon: number };
 }
 
-function CarouselItem({ articles, userLocation }: CarouselItemProps) {
+const CarouselItem = ({ articles, userLocation }: CarouselItemProps) => {
   if (!articles || articles.length === 0) {
     return <p>No articles available</p>;
   }
@@ -86,6 +86,6 @@ function CarouselItem({ articles, userLocation }: CarouselItemProps) {
       </Carousel>
     </div>
   );
-}
+};
 
 export default CarouselItem;
