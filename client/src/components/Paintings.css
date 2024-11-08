@@ -1,0 +1,59 @@
+@media screen and (min-width: 992px) {
+  .painting-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+  }
+}
+
+.painting-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: first baseline;
+  text-align: center;
+  gap: 1rem;
+  padding: 0.25rem;
+  background-color: #cccccc76;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.text-container {
+  position: relative;
+  width: 300px;
+}
+
+.painting-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  display: block;
+  height: 2.8em;
+  line-height: 1.4em;
+}
+
+.toggle-checkbox {
+  display: none;
+}
+
+.read-more {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.toggle-checkbox:checked + .read-more {
+  content: "Read less";
+}
+
+.toggle-checkbox:checked + .read-more + .painting-description {
+  white-space: normal;
+  text-overflow: unset;
+  overflow: visible;
+  height: auto;
+}
