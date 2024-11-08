@@ -71,3 +71,15 @@
   font-family: "Mukta", sans-serif;
   font-weight: bold;
 }
+
+.distance-compass-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.distance-compass-container .distance-text {
+  margin-left: 10px;
+}
