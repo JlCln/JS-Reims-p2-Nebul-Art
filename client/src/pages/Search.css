@@ -1,0 +1,76 @@
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100vh;
+  margin-top: 2rem;
+  position: fixed;
+}
+
+@media screen and (min-width: 992px) {
+  .search-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.paintings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: first baseline;
+}
+
+@media screen and (min-width: 992px) {
+  .paintings-container {
+    width: 70vw;
+    flex: 1;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, auto);
+    gap: 0.5rem;
+    padding: 1.5rem;
+  }
+}
+
+.search-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 992px) {
+  .search-filter {
+    align-items: flex-start;
+    text-align: unset;
+    width: 30vw;
+    padding: 15px;
+    gap: 0.25rem;
+    border: solid 3px #ccc;
+    border-radius: 15px;
+    background-color: #cccccc7c;
+    overflow: hidden;
+    position: sticky;
+    top: 200px;
+    overflow-y: auto;
+  }
+}
+
+.search-input-container {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url("/src/assets/images/search-line.png");
+  background-position: 5px 5px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
+
+.search-link {
+  text-decoration: none;
+  font-size: 17px;
+}
