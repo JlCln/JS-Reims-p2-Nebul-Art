@@ -44,6 +44,7 @@ header {
   text-shadow: #ffffffc9 0 0 3px;
   -webkit-text-stroke: #da943336 0.75px;
   filter: drop-shadow(0 0 1px #6e6e6e99);
+  background-color: #ffffffe3;
 }
 
 .nav-bar {
@@ -89,9 +90,11 @@ header {
     inset 0 0 0 var(--border-size) currentcolor,
     inset 0.5em 0.5em 0 0 #e8cf86, inset 0.5em 0.5em 0 0 #e8cf86,
     inset -0.5em -0.5em 0 0 #e8cf86, inset 0 0 0 var(--border-size) currentcolor;
-  text-shadow: #ffffffc9 0 0 3px;
-  -webkit-text-stroke: #ae8b8b8c 1px;
+  text-shadow: #ffffff5f 0 0 8px;
+  -webkit-text-stroke: #33333329 1px;
   text-decoration: none;
+  background-color: #ffffffb3;
+  background-blend-mode: overlay;
 }
 
 .nav-bar.expanded .nav-button {
