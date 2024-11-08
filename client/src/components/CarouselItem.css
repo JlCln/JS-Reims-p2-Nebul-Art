@@ -1,16 +1,31 @@
 .carousel-container {
   width: 95%;
-  max-width: 1200px;
   margin: 0 auto;
-  overflow: visible;
   position: relative;
+}
+
+@media screen and (min-width: 700px) {
+  .carousel-container {
+    width: 80%;
+  }
 }
 
 .carousel .slide {
   background: #f5f5f5;
   border-radius: 20px;
-  height: 70vh;
+  height: 30rem;
+  width: 100%;
   position: sticky;
+}
+
+@media screen and (min-width: 700px) {
+  .carousel .slide {
+    height: 42rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    scroll-snap-align: start;
+  }
 }
 
 .carousel .slide::before {
@@ -22,8 +37,10 @@
   height: 100%;
   background-size: cover;
   background-position: center;
-  border-radius: 10px;
+  background-image: none;
   z-index: -1;
+  display: none;
+  visibility: hidden;
 }
 
 .carousel .control-arrow {
@@ -61,6 +78,12 @@
   transform: rotate(90deg);
   right: 5px;
   bottom: 5px;
+}
+
+@media screen and (min-width: 700px) {
+  .custom-arrow-next {
+    bottom: 50px;
+  }
 }
 
 .custom-arrow:hover {
