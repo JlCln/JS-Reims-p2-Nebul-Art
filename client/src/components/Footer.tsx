@@ -35,30 +35,8 @@ function Footer() {
           </a>
         </div>
 
-        <div className="footer-links">
-          <a href="/terms">
-            <div>
-              <p>Mentions Légales</p>
-            </div>
-          </a>
-          <a href="/privacy">
-            <div>
-              <p>Politique de confidentialité</p>
-            </div>
-          </a>
-          <a href="/contact">
-            <div>
-              <p>Contact</p>
-            </div>
-          </a>
-          <a href="/cookies">
-            <div>
-              <p>Gestion des cookies</p>
-            </div>
-          </a>
-          <div className="footer-copyright">
-            <p>© {new Date().getFullYear()} Nebul art, Tous Droits Réservés.</p>
-          </div>
+        <div className="footer-copyright">
+          <p>© {new Date().getFullYear()} Nebul art, Tous Droits Réservés.</p>
         </div>
       </footer>
     </>
