@@ -34,6 +34,10 @@ function Footer() {
             <img src={insta} alt="Instagram" />
           </a>
         </div>
+
+        <div className="footer-copyright">
+          <p>© {new Date().getFullYear()} Nebul art, Tous Droits Réservés.</p>
+        </div>
       </footer>
     </>
   );
