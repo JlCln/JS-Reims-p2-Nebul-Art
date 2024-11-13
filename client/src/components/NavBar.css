@@ -3,7 +3,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: left;
-  height: 2rem;
+  height: 2.5rem;
   gap: 2px;
   margin: 10px 0px;
   margin-left: 2px;
@@ -136,5 +136,25 @@ header {
   to {
     opacity: 0;
     transform: translateY(-10px);
+  }
+}
+
+.nav-switch-button {
+  position: absolute;
+  top: 3.5rem;
+  left: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-switch-button {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    left: unset;
+    z-index: 100;
+    filter: drop-shadow(0 0 2px #000000e5);
   }
 }

@@ -2,6 +2,7 @@ import type React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import ThemeSwitch from "./ThemeSwitch";
 
 const NavBar: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -34,6 +35,9 @@ const NavBar: React.FC = () => {
           About
         </Link>
       </nav>
+      <div className="nav-switch-button">
+        <ThemeSwitch />
+      </div>
     </header>
   );
 };
