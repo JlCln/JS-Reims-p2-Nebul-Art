@@ -95,7 +95,7 @@ const GalleryCarouselItem: React.FC<GalleryCarouselItemProps> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="gallery-url-icon">ℹ️</span> More details here
+                  <span className="gallery-url-icon">i</span> More details here
                 </a>
               </p>
               <p className="gallery-object-type">
