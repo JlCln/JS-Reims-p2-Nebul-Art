@@ -70,8 +70,8 @@ function About() {
     <>
       <div className="about-container">
         <div className="paragraph-container">
-          <h2 className="about-h2">About us</h2>
-          <p className="about-p">
+          <h2 className="about-title">About us</h2>
+          <p className="about">
             Bienvenue à la Wild Code School, une école de codage innovante qui
             vise à combler le fossé entre l'éducation et l'industrie
             technologique. Fondée sur la conviction que tout le monde peut

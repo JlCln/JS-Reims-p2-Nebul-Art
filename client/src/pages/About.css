@@ -7,7 +7,28 @@
   --h2-font-size: 1.25rem;
 }
 
-div.card-container {
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+.paragraph-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.about-title {
+  font-family: "Itim", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: #9d6219;
+  font-size: 4rem;
+}
+
+.card-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,23 +36,12 @@ div.card-container {
   margin: 0 5.5rem;
 }
 
-@media screen and (min-width: 992px) {
-  div.card-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, auto);
-    height: 70vh;
-  }
+p.about {
+  font-family: var(--body-font);
+  font-size: var(--h2-font-size);
 }
 
-.about-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px;
-}
-
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 700px) {
   .about-container {
     flex-direction: row;
     justify-content: center;
@@ -40,66 +50,19 @@ div.card-container {
     gap: 10px;
     margin: 15px;
   }
-}
-
-.about-h2 {
-  font-family: "Itim", cursive;
-  font-weight: 400;
-  font-style: normal;
-  color: #9d6219;
-  font-size: 4rem;
-}
-
-.paragraph-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 25px;
-  background: #ffffffbc;
-  border-radius: 25px;
-}
-
-@media screen and (min-width: 992px) {
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    height: 70vh;
+  }
+  .about p {
+    margin: 10px;
+    line-height: 1.6;
+    text-align: justify;
+    font-size: 22px;
+  }
   .paragraph-container {
     min-width: 40vw;
-  }
-}
-
-.about-container,
-.about-p {
-  opacity: 0;
-  transform: translateX(0);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.about-p {
-  font-family: var(--body-font);
-  font-size: var(--h2-font-size);
-  animation: slide-in-left 1s forwards;
-}
-
-.about-container {
-  animation: slide-in-right 1s forwards;
-}
-
-@keyframes slide-in-left {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in-right {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
   }
 }
