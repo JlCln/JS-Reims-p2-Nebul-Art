@@ -12,19 +12,19 @@ interface SearchProps {
   lien_site_associe: string;
 }
 
-function Paintings({ titre, imageoeuvre, description, auteur }: SearchProps) {
+function Paintings({ titre, imageoeuvre, auteur }: SearchProps) {
   return (
     <>
       <div className="painting-container">
         <img className="painting-img" src={imageoeuvre} alt="background" />
-        <h3>{titre}</h3>
-        <p className="auteur">{auteur}</p>
         <div className="text-container">
-          <input type="checkbox" id="toggle" className="toggle-checkbox" />
-          <label htmlFor="toggle" className="read-more">
-            Read more
-          </label>
-          <p className="painting-description">{description}</p>
+          <h3 className="painting-title">
+            {titre
+              ? titre.charAt(0).toUpperCase() + titre.slice(1)
+              : "Untitled"}
+          </h3>
+
+          <p className="auteur">{auteur}</p>
         </div>
       </div>
     </>

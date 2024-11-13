@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import type { ChangeEvent } from "react";
 import Paintings from "../components/Paintings";
 import "./Search.css";
+import { Link } from "react-router-dom";
 
 interface Canva {
   reference: string;
@@ -12,34 +14,33 @@ interface Canva {
   titre: string;
   imageoeuvre: string;
   lien_site_associe: string;
+  lieu_de_creation_utilisation: string;
 }
 
 const Search = () => {
   const [apiCanvas, setApiCanvas] = useState<Canva[]>([]);
   const [searchItem, setSearchItem] = useState("");
-  const [filteredCanvas, setFilteredCanvas] = useState<Canva[]>([]);
 
   useEffect(() => {
-    fetch(
-      "https://gallery-api-test-6z2ph3s4o-jlclns-projects.vercel.app/api/gallery",
-    )
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchCanvas = async () => {
+      try {
+        const url = `/api/gallery${
+          searchItem ? `?titre=${encodeURIComponent(searchItem)}` : ""
+        }`;
+
+        const response = await fetch(url);
+        const data = await response.json();
         setApiCanvas(data);
-        setFilteredCanvas(data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+      } catch (err) {
+        console.error("Erreur de chargement des données :", err);
+      }
+    };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchTerm = e.target.value;
-    setSearchItem(searchTerm);
+    fetchCanvas();
+  }, [searchItem]);
 
-    const filteredPaintings = apiCanvas.filter((canva) =>
-      canva.titre.toLowerCase().includes(searchTerm.toLowerCase()),
-    );
-
-    setFilteredCanvas(filteredPaintings);
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchItem(e.target.value);
   };
 
   return (
@@ -53,26 +54,38 @@ const Search = () => {
           onChange={handleInputChange}
           placeholder="Search for Painting"
         />
-        <ol>
-          {filteredCanvas.map((canva) => (
-            <li key={canva.reference}>
-              {canva.titre}
-              {canva.reference}
-              {canva.titre}
-            </li>
-          ))}
-        </ol>
+        {apiCanvas.length > 0 && (
+          <div className="search-results">
+            {apiCanvas.map((canva) => (
+              <button
+                onClick={() => window.location.href === canva.lien_site_associe}
+                className="filter-btn"
+                type="button"
+                key={canva.titre}
+              >
+                <Link to={canva.titre} />
+                {canva.lieu_de_creation_utilisation}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
       <div className="paintings-container">
-        {filteredCanvas.map((canva) => (
-          <Paintings
+        {apiCanvas.map((canva) => (
+          <button
+            className="paintings-container-btn"
+            type="button"
             key={canva.reference}
-            titre={canva.titre}
-            imageoeuvre={canva.imageoeuvre}
-            auteur={canva.auteur}
-            description={canva.description}
-            lien_site_associe={canva.lien_site_associe}
-          />
+            onClick={() => window.location.href === canva.lien_site_associe} // Navigate when clicked
+          >
+            <Paintings
+              titre={canva.titre}
+              imageoeuvre={canva.imageoeuvre}
+              auteur={canva.auteur}
+              description={canva.description}
+              lien_site_associe={canva.lien_site_associe}
+            />
+          </button>
         ))}
       </div>
     </div>
