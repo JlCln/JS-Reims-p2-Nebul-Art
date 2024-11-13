@@ -1,26 +1,43 @@
 :root {
-  background-image: url("https://i.imgur.com/deVIXZU.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-attachment: fixed;
+  --background-color: rgb(255, 255, 255);
+  --text-color: black;
 }
 
-@media screen and (min-width: 768px) {
-  :root {
-    background-image: url("https://i.imgur.com/HPe0KYD.png");
-  }
+[data-theme="dark"] {
+  --background-color: black;
+  --text-color: white;
+}
+
+[data-theme="light"] {
+  --background-color: white;
+  --text-color: black;
 }
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  overflow: -moz-scrollbars-none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }
 
 body {
-  line-height: 1.5;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: url("https://i.imgur.com/deVIXZU.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url("https://i.imgur.com/HPe0KYD.png");
+  }
 }
 
 main {
@@ -44,8 +61,10 @@ main {
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   margin: 0 5px 0 0;
+  padding: 0;
+  width: 100%;
+  overflow-y: scroll;
 }
 
 .main-content {

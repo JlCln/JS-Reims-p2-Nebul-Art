@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import SplashScreen from "./components/SplashScreen";
+import { ThemeProvider } from "./components/ThemeContext";
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -15,8 +16,17 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
+
   return (
-    <div>
+    <ThemeProvider>
+      <AppContent showSplash={showSplash} />
+    </ThemeProvider>
+  );
+}
+
+const AppContent = ({ showSplash }: { showSplash: boolean }) => {
+  return (
+    <div className="app-container">
       {showSplash ? (
         <SplashScreen />
       ) : (
@@ -24,7 +34,7 @@ function App() {
           <header>
             <NavBar />
           </header>
-          <main>
+          <main className="main-content">
             <Outlet />
           </main>
           <footer>
@@ -34,6 +44,6 @@ function App() {
       )}
     </div>
   );
-}
+};
 
 export default App;

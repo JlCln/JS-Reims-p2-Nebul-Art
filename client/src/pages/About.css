@@ -55,6 +55,8 @@ div.card-container {
   flex-direction: column;
   align-items: center;
   margin-bottom: 25px;
+  background: #bebebece;
+  border-radius: 25px;
 }
 
 @media screen and (min-width: 992px) {

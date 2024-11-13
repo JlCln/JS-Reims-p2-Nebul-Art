@@ -1,0 +1,31 @@
+.compass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #191d201f;
+  border: solid 0.3px #eaeaea26;
+  margin-top: 5px;
+  filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.616));
+}
+
+.needle-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 50%;
+  background-color: none;
+  transform-origin: bottom;
+  transform: translate(-50%, -100%);
+}
+
+.needle {
+  font-size: 2.5rem;
+  vertical-align: text-bottom;
+  text-align: justify;
+  line-height: 1.5rem;
+  filter: drop-shadow(0 0 1px rgb(0, 0, 0));
+}
