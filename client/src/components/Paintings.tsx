@@ -18,7 +18,12 @@ function Paintings({ titre, imageoeuvre, auteur }: SearchProps) {
       <div className="painting-container">
         <img className="painting-img" src={imageoeuvre} alt="background" />
         <div className="text-container">
-          <h3 className="painting-title">{titre}</h3>
+          <h3 className="painting-title">
+            {titre
+              ? titre.charAt(0).toUpperCase() + titre.slice(1)
+              : "Untitled"}
+          </h3>
+
           <p className="auteur">{auteur}</p>
         </div>
       </div>
