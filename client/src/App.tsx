@@ -37,9 +37,7 @@ const AppContent = ({ showSplash }: { showSplash: boolean }) => {
           <main className="main-content">
             <Outlet />
           </main>
-          <footer>
-            <Footer />
-          </footer>
+          <Footer />
         </>
       )}
     </div>

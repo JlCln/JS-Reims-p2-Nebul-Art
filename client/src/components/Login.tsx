@@ -85,7 +85,7 @@ function Login() {
               </button>
             </div>
             <p style={{ margin: "1rem" }}>Forgot Password ?</p>
-            <p>
+            <p style={{ margin: "1rem" }}>
               Not a member ?
               <button
                 type="button"
