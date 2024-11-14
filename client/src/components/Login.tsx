@@ -57,7 +57,7 @@ function Login() {
       {isLogin ? (
         <>
           <div className="inputs">
-            <h2 className="login-h2"> Login Form </h2>
+            <h2 className="account-h2"> Login Form </h2>
             <div className="input">
               <input
                 type="email"
@@ -100,7 +100,7 @@ function Login() {
       ) : (
         <>
           <div className="inputs">
-            <h2> Signup Form </h2>
+            <h2 className="account-h2"> Signup Form </h2>
             <div className="input">
               <input
                 type="Email"

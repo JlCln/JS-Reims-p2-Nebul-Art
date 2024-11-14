@@ -1,16 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Mukta:wght@200;300;400;500;600;700;800&display=swap");
+
 :root {
   --background-color: rgb(255, 255, 255);
   --text-color: black;
+  --font-family: "Mukta", sans-serif;
+  --main-bg-image: url("https://i.imgur.com/HPPs36z.png");
 }
 
 [data-theme="dark"] {
   --background-color: black;
   --text-color: white;
+  --main-bg-image: url("https://i.imgur.com/sBHlVsN.png");
 }
 
 [data-theme="light"] {
   --background-color: white;
   --text-color: black;
+  --main-bg-image: url("https://i.imgur.com/HPPs36z.png");
 }
 
 * {
@@ -20,6 +26,14 @@
 
 *::-webkit-scrollbar {
   display: none;
+}
+
+p {
+  font-family: var(--font-family);
+}
+
+h2 {
+  font-family: var(--font-family);
 }
 
 body {
@@ -42,7 +56,7 @@ body {
 
 main {
   min-height: 80vh;
-  background-image: url("https://i.imgur.com/HPPs36z.png");
+  background-image: var(--main-bg-image);
   background-size: 75%;
   background-repeat: no-repeat;
   background-position-y: center;
