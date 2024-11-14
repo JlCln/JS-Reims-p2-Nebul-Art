@@ -1,35 +1,98 @@
 import { useState } from "react";
-
 import "./Login.css";
 
 function Login() {
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  const [signupEmail, setSignupEmail] = useState("");
+  const [signupPassword, setSignupPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [loginEmailError, setLoginEmailError] = useState(false);
+  const [loginPasswordError, setLoginPasswordError] = useState(false);
+  const [signupEmailError, setSignupEmailError] = useState(false);
+  const [signupPasswordError, setSignupPasswordError] = useState(false);
+  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+
   const [isLogin, setIsLogin] = useState(true);
-  const [inputValue, setInputValue] = useState("");
-  const [isError, setIsError] = useState(false);
 
   const handleLoginClick = () => {
     setIsLogin(true);
+    resetSignupFormFields();
   };
 
   const handleSignUpClick = () => {
     setIsLogin(false);
+    resetLoginFormFields();
   };
 
-  const handleValidation = () => {
-    if (inputValue.trim() === "") {
-      setIsError(true);
-    } else {
-      setIsError(false);
-      alert("Formulaire soumis !");
+  const resetLoginFormFields = () => {
+    setLoginEmail("");
+    setLoginPassword("");
+    setLoginEmailError(false);
+    setLoginPasswordError(false);
+  };
+
+  const resetSignupFormFields = () => {
+    setSignupEmail("");
+    setSignupPassword("");
+    setConfirmPassword("");
+    setSignupEmailError(false);
+    setSignupPasswordError(false);
+    setConfirmPasswordError(false);
+  };
+
+  const handleLoginValidation = () => {
+    setLoginEmailError(false);
+    setLoginPasswordError(false);
+
+    let isValid = true;
+
+    if (loginEmail.trim() === "") {
+      setLoginEmailError(true);
+      isValid = false;
+    }
+
+    if (loginPassword.trim() === "") {
+      setLoginPasswordError(true);
+      isValid = false;
+    }
+
+    if (isValid) {
+      alert("Connexion réussie !");
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (isError) {
-      setInputValue(e.target.value);
-      setIsError(false);
-    } else {
-      setInputValue(e.target.value);
+  const handleSignupValidation = () => {
+    setSignupEmailError(false);
+    setSignupPasswordError(false);
+    setConfirmPasswordError(false);
+
+    let isValid = true;
+
+    if (signupEmail.trim() === "") {
+      setSignupEmailError(true);
+      isValid = false;
+    }
+
+    if (signupPassword.trim() === "") {
+      setSignupPasswordError(true);
+      isValid = false;
+    }
+
+    if (confirmPassword.trim() === "") {
+      setConfirmPasswordError(true);
+      isValid = false;
+    }
+
+    if (signupPassword !== confirmPassword) {
+      alert("Les mots de passe ne correspondent pas !");
+      isValid = false;
+    }
+
+    if (isValid) {
+      alert("Inscription réussie !");
     }
   };
 
@@ -49,97 +112,94 @@ function Login() {
             className={!isLogin ? "active" : ""}
             onClick={handleSignUpClick}
           >
-            SignUp
+            Sign Up
           </button>
         </div>
       </div>
 
       {isLogin ? (
-        <>
-          <div className="inputs">
-            <h2 className="account-h2"> Login Form </h2>
-            <div className="input">
-              <input
-                type="email"
-                placeholder="Email ID"
-                value={inputValue}
-                onChange={handleChange}
-              />
-              {isError && (
-                <p style={{ color: "red" }}>Le champ ne peut pas être vide.</p>
-              )}
-            </div>
-            <div className="input">
-              <input
-                type="password"
-                placeholder="Password"
-                value={inputValue}
-                onChange={handleChange}
-              />
-              {isError && (
-                <p style={{ color: "red" }}>Le champ ne peut pas être vide.</p>
-              )}
-
-              <button type="button" onClick={handleValidation}>
-                Login
-              </button>
-            </div>
-            <p style={{ margin: "1rem" }}>Forgot Password ?</p>
-            <p style={{ margin: "1rem" }}>
-              Not a member ?
-              <button
-                type="button"
-                onClick={handleSignUpClick}
-                className="redirection-btn"
-              >
-                Signup now
-              </button>
-            </p>
+        <div className="inputs">
+          <h2 className="login-h2">Login Form</h2>
+          <div className="input">
+            <input
+              type="email"
+              placeholder="Email"
+              value={loginEmail}
+              onChange={(e) => setLoginEmail(e.target.value)}
+            />
+            {loginEmailError && (
+              <p style={{ color: "red" }}>Le champ ne peut pas être vide.</p>
+            )}
           </div>
-        </>
+          <div className="input">
+            <input
+              type="password"
+              placeholder="Password"
+              value={loginPassword}
+              onChange={(e) => setLoginPassword(e.target.value)}
+            />
+            {loginPasswordError && (
+              <p style={{ color: "red" }}>Le champ ne peut pas être vide.</p>
+            )}
+
+            <button type="button" onClick={handleLoginValidation}>
+              Login
+            </button>
+          </div>
+          <p style={{ margin: "1rem" }}>Forgot Password?</p>
+          <p>
+            Not a member?
+            <button
+              type="button"
+              onClick={handleSignUpClick}
+              className="redirection-btn"
+            >
+              Sign up now
+            </button>
+          </p>
+        </div>
       ) : (
-        <>
-          <div className="inputs">
-            <h2 className="account-h2"> Signup Form </h2>
-            <div className="input">
-              <input
-                type="Email"
-                placeholder="Email Adress"
-                value={inputValue}
-                onChange={handleChange}
-              />
-              {isError && (
-                <p style={{ color: "red" }}>Le champ ne peut pas être vide.</p>
-              )}
-            </div>
-            <div className="input">
-              <input
-                type="password"
-                placeholder="Password"
-                value={inputValue}
-                onChange={handleChange}
-              />
-              {isError && (
-                <p style={{ color: "red" }}>Le champ ne peut pas être vide.</p>
-              )}
-            </div>
+        <div className="inputs">
+          <h2 className="signup-h2">SignUp Form</h2>
+          <div className="input">
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={signupEmail}
+              onChange={(e) => setSignupEmail(e.target.value)}
+            />
+            {signupEmailError && (
+              <p style={{ color: "red" }}>Le champ ne peut pas être vide.</p>
+            )}
+          </div>
+          <div className="input">
+            <input
+              type="password"
+              placeholder="Password"
+              value={signupPassword}
+              onChange={(e) => setSignupPassword(e.target.value)}
+            />
+            {signupPasswordError && (
+              <p style={{ color: "red" }}>Le champ ne peut pas être vide.</p>
+            )}
           </div>
 
           <div className="input">
             <input
               type="password"
               placeholder="Confirm Password"
-              value={inputValue}
-              onChange={handleChange}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
-            {isError && (
+            {confirmPasswordError && (
               <p style={{ color: "red" }}>Le champ ne peut pas être vide.</p>
             )}
-            <button type="button" onClick={handleValidation}>
+
+            <button type="button" onClick={handleSignupValidation}>
               Sign Up
             </button>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
