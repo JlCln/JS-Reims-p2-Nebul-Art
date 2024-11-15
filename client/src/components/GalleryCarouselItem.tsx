@@ -67,9 +67,9 @@ const GalleryCarouselItem: React.FC<GalleryCarouselItemProps> = ({
         showThumbs={false}
         showStatus={false}
       >
-        {articles.map((article) => (
+        {articles.map((article, index) => (
           <div
-            key={article.id}
+            key={article.id || index}
             className="gallery-slide"
             style={{ backgroundImage: `url(${article.imageoeuvre})` }}
           >
