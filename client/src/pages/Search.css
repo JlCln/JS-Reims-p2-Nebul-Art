@@ -48,7 +48,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border-radius: 8px; */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.021);
   transition: transform 0.3s ease-in-out;
 }
@@ -72,12 +71,9 @@
   .search-filter {
     align-items: center;
     text-align: unset;
-    /* gap: 0.25rem; */
     border: solid 3px #ccc;
     border-radius: 1rem;
     background-color: #ededede0;
-    /* top: 115px; */
-    /* overflow-y: auto; */
   }
 }
 @media screen and (max-width: 992px) {
