@@ -48,6 +48,7 @@ div.card-container {
   font-style: normal;
   color: #9d6219;
   font-size: 4rem;
+  margin: 0.7rem;
 }
 
 .paragraph-container {
@@ -57,11 +58,13 @@ div.card-container {
   margin-bottom: 25px;
   background: #bebebece;
   border-radius: 25px;
+  padding: 5px;
 }
 
 @media screen and (min-width: 992px) {
   .paragraph-container {
     min-width: 40vw;
+    padding: 15px;
   }
 }
 

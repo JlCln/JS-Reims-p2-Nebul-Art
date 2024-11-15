@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./Article.css";
 import Compass from "./Compass";
 
@@ -50,6 +51,29 @@ function Article({
   userLocation,
   distance,
 }: ArticleProps) {
+  const [deviceOrientation, setDeviceOrientation] = useState(0);
+
+  useEffect(() => {
+    const handleOrientation = (event: DeviceOrientationEvent) => {
+      if (event.alpha !== null) {
+        setDeviceOrientation(event.alpha);
+      }
+    };
+
+    window.addEventListener("deviceorientation", handleOrientation);
+
+    return () => {
+      window.removeEventListener("deviceorientation", handleOrientation);
+    };
+  }, []);
+
+  const direction = calculateDirection(
+    userLocation ?? { lat: 0, lon: 0 },
+    coordinates ?? { lat: 0, lon: 0 },
+  );
+
+  const adjustedDirection = (direction - deviceOrientation + 360) % 360;
+
   return (
     <div className="article-content" style={{ backgroundImage: `url(${img})` }}>
       <div className="article-text">
@@ -61,12 +85,7 @@ function Article({
         </p>
         {distance !== undefined && (
           <div className="distance-compass-container">
-            <Compass
-              direction={calculateDirection(
-                userLocation ?? { lat: 0, lon: 0 },
-                coordinates ?? { lat: 0, lon: 0 },
-              )}
-            />
+            <Compass direction={adjustedDirection} />
             <p
               className="distance-text"
               style={{

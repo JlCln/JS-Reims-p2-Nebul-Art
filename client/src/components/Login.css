@@ -26,7 +26,7 @@
   position: relative;
   top: 2vh;
   margin: 0px 30px 30px;
-  padding: 9px 0px;
+  padding: 5px;
   text-align: center;
   cursor: pointer;
 }
@@ -38,6 +38,7 @@
 .form-toggle button {
   width: 100%;
   padding: 10px;
+  margin-top: 5px;
   border: 50px solid black;
   border: none;
   cursor: pointer;
@@ -97,6 +98,12 @@ p {
   font-size: 20px;
 }
 
+.account-h2 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 32px;
+}
+.signup-h2,
 .login-h2 {
   text-align: center;
   font-weight: 800;
@@ -107,7 +114,7 @@ p {
   .sign-container {
     display: flex;
     flex-direction: column;
-    padding-bottom: 25vh;
+    padding-bottom: 5rem;
     background: white;
     margin: 50px auto;
     width: 590px;
