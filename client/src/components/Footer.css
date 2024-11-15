@@ -20,11 +20,11 @@
 }
 
 .social-link img {
-  width: 30px;
+  width: 25px;
   margin: 0 10px;
   cursor: pointer;
   position: relative;
-  bottom: -85px;
+  bottom: -55px;
 }
 
 @media screen and (min-width: 700px) {
@@ -36,21 +36,21 @@
 .footer-copyright {
   display: flex;
   border-top: 1px solid #9d6219;
-  padding: 15px;
-  margin: 15 0 10px;
+  padding: 10px;
+  margin: 10 0 10px;
   position: fixed;
   bottom: 1px;
   width: 100%;
-  height: 60px;
+  height: 50px;
 }
 .footer-copyright P {
   display: flex;
   flex: 1;
-  justify-content: center;
+  justify-content: right;
   line-height: 1.5;
   font-size: 1.1rem;
   position: relative;
-  bottom: 32px;
+  bottom: 0.1rem;
 }
 @media screen and (min-width: 700px) {
   .footer {
@@ -60,7 +60,7 @@
     justify-content: space-between;
     position: absolute;
     align-items: flex-end;
-    bottom: 49px;
+    bottom: 30px;
     right: 10px;
     float: right;
     width: 100%;
@@ -88,5 +88,33 @@
     flex: 1;
     justify-content: center;
     font-size: 1.3rem;
+    bottom: 1rem;
   }
+}
+
+.contact-link-text {
+  position: fixed;
+  bottom: 15px;
+  right: 0px;
+  padding: 5px;
+  background: none;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .contact-link-text {
+    bottom: 10px;
+    right: 20px;
+    font-size: 1rem;
+  }
+}
+
+.contact-link-icon {
+  font-size: 1.1rem;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
