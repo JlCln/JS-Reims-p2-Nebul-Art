@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import type { ChangeEvent } from "react";
 import Paintings from "../components/Paintings";
 import "./Search.css";
-import { Link } from "react-router-dom";
 
 interface Canva {
   reference: string;
@@ -14,7 +13,6 @@ interface Canva {
   titre: string;
   imageoeuvre: string;
   lien_site_associe: string;
-  lieu_de_creation_utilisation: string;
 }
 
 const Search = () => {
@@ -46,29 +44,15 @@ const Search = () => {
   return (
     <div className="search-container">
       <div className="search-filter">
-        <h2>Find a Painting</h2>
+        <label htmlFor="search">Find a Painting</label>
         <input
+          id="search"
           className="search-input-container"
           type="text"
           value={searchItem}
           onChange={handleInputChange}
           placeholder="Search for Painting"
         />
-        {apiCanvas.length > 0 && (
-          <div className="search-results">
-            {apiCanvas.map((canva) => (
-              <button
-                onClick={() => window.location.href === canva.lien_site_associe}
-                className="filter-btn"
-                type="button"
-                key={canva.titre}
-              >
-                <Link to={canva.titre} />
-                {canva.lieu_de_creation_utilisation}
-              </button>
-            ))}
-          </div>
-        )}
       </div>
       <div className="paintings-container">
         {apiCanvas.map((canva) => (
@@ -76,7 +60,9 @@ const Search = () => {
             className="paintings-container-btn"
             type="button"
             key={canva.reference}
-            onClick={() => window.location.href === canva.lien_site_associe} // Navigate when clicked
+            onClick={() => {
+              window.location.href = canva.lien_site_associe;
+            }}
           >
             <Paintings
               titre={canva.titre}

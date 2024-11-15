@@ -8,8 +8,8 @@
 
 @media screen and (min-width: 992px) {
   .search-container {
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     position: fixed;
   }
 }
@@ -26,13 +26,13 @@
 
 @media screen and (min-width: 992px) {
   .paintings-container {
-    width: 65vw;
+    width: 99vw;
     flex: 1;
     overflow-y: auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, auto);
-    gap: 1rem;
+    gap: 1.5rem;
     padding: 1.5rem;
   }
 }
@@ -48,37 +48,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border-radius: 8px; */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.021);
   transition: transform 0.3s ease-in-out;
 }
 
 @media screen and (min-width: 992px) {
   .paintings-container-btn:hover {
-    transform: scale(0.9);
+    transform: scale(1.075);
   }
 }
 
 .search-filter {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
+  gap: 1rem;
+  padding-left: 1rem;
 }
 
 @media screen and (min-width: 992px) {
   .search-filter {
-    align-items: flex-start;
+    align-items: center;
     text-align: unset;
-    width: 30vw;
-    padding: 15px;
-    gap: 0.25rem;
     border: solid 3px #ccc;
-    border-radius: 15px;
+    border-radius: 1rem;
     background-color: #ededede0;
-    overflow: hidden;
-    position: sticky;
-    top: 200px;
-    overflow-y: auto;
   }
 }
 @media screen and (max-width: 992px) {
@@ -88,31 +83,13 @@
 }
 
 .search-input-container {
-  width: 90%;
   box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  border: none;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
   background-color: white;
   background-image: url("/src/assets/images/search-line.png");
   background-position: 5px 5px;
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
-}
-
-@media screen and (min-width: 992px) {
-  .search-input-container {
-    width: 100%;
-  }
-}
-
-.filter-btn {
-  border: none;
-  text-align: left;
-}
-
-@media screen and (max-width: 992px) {
-  .search-results {
-    display: none;
-  }
 }
