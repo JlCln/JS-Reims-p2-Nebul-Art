@@ -6,7 +6,7 @@
 
 @media screen and (min-width: 992px) {
   .painting-img {
-    width: 450px;
+    width: 470px;
     height: 350px;
     border-radius: 0px;
   }
@@ -37,14 +37,13 @@
   opacity: 1;
   transition: opacity 0.3s ease;
   width: 250px;
-  max-height: 13vh;
+  max-height: 12.5vh;
   overflow: hidden;
+  border-radius: 0px;
 }
 @media screen and (min-width: 992px) {
   .text-container {
     opacity: 0;
-    left: 0;
-    right: 0;
     width: 100%;
   }
 }
