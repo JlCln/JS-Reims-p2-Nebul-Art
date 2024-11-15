@@ -26,7 +26,7 @@ const ContactForm = () => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           maxLength={300}
-          placeholder="Type your message here (up to 300 characters)"
+          placeholder="Type your message here... (up to 300 characters)"
           required
         />
         <input
