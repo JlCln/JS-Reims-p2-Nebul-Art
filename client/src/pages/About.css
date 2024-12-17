@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap");
+
+:root {
+  --body-font: "Syne", sans-serif;
+  --h2-font-size: 1.25rem;
+}
+
+div.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 5.5rem;
+}
+
+@media screen and (min-width: 992px) {
+  div.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    height: 70vh;
+  }
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+@media screen and (min-width: 992px) {
+  .about-container {
+    flex-direction: row;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 10px;
+    margin: 15px;
+  }
+}
+
+.about-h2 {
+  font-family: "Itim", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: #9d6219;
+  font-size: 4rem;
+  margin: 0.7rem;
+}
+
+.paragraph-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+  background: #bebebece;
+  border-radius: 25px;
+  padding: 5px;
+}
+
+@media screen and (min-width: 992px) {
+  .paragraph-container {
+    min-width: 40vw;
+    padding: 15px;
+  }
+}
+
+.about-container,
+.about-p {
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.about-p {
+  font-family: var(--body-font);
+  font-size: var(--h2-font-size);
+  animation: slide-in-left 1s forwards;
+}
+
+.about-container {
+  animation: slide-in-right 1s forwards;
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

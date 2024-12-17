@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap");
+
+:root {
+  --first-color: #9d6219;
+  --second-color: hsl(150, 100%, 38%);
+  --title-color: hsl(230, 24%, 12%);
+  --gray-color: hsl(230, 24%, 88%);
+  --border-color: #5d3d1c;
+  --body-color: hsl(230, 100%, 98%);
+  --container-color: hsl(0, 0%, 100%);
+
+  --body-font: "Syne", sans-serif;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+}
+
+div.avatar-main-container {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 0 0.5rem;
+}
+
+.avatar-h1 {
+  color: var(--title-color);
+}
+
+.avatar-role {
+  font-size: 17px;
+  color: var(--title-color);
+}
+
+.card-avatar {
+  background: var(--gray-color);
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  box-shadow: 0 4px 8px #9d6219;
+  color: var(--second-color);
+}
+
+.avatar-btn {
+  background-color: white;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.avatar-btn-img {
+  border-radius: 50%;
+  width: 100px;
+  background-color: var(--gray-color);
+}
+
+@media screen and (min-width: 992px) {
+  .avatar-btn-img {
+    width: 200px;
+  }
+}
+
+.avatar-card-img {
+  width: 250px;
+}
+
+ul.icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+li {
+  list-style: none;
+}
+
+.avatar-name {
+  font-family: var(--body-font);
+  font-size: var(--h2-font-size);
+  text-align: center;
+  margin: 10px;
+}
